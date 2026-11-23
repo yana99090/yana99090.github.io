@@ -1,0 +1,880 @@
+/* =========================================================
+   Yana Patel — Portfolio
+   Layout: section > .container > .row > .col-md-* > .signature-text
+   Colours (one per stepwell level, top to bottom):
+     Level 00  #E8D9BC   surface
+     Level 01  #DCC8A4
+     Level 02  #C9AF85
+     Level 03  #5B4A33
+     Level 04  #0E2628   water
+   Ink #2A2218 · Accent #2E3D99 · Teal #7CCFC3
+   ========================================================= */
+
+
+/* ---------- Fonts ---------- */
+@font-face {
+	font-family: 'Bricolage Grotesque';
+	src: url(../fonts/bricolage-grotesque.woff2) format('woff2');
+	font-weight: 200 800;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url(../fonts/jetbrains-mono.woff2) format('woff2');
+	font-weight: 100 800;
+	font-display: swap;
+}
+
+
+/* ---------- Common ---------- */
+* {
+	box-sizing: border-box;
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	background: #E8D9BC;
+	color: #2A2218;
+	font-family: 'Bricolage Grotesque', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+body img {
+	width: 100%;
+	display: block;
+}
+body a {
+	color: #2E3D99;
+}
+body a:hover {
+	color: #1C2766;
+}
+body h1 {
+	margin: 0;
+	padding-bottom: 16px;
+	font-size: clamp(44px, 6.6vw, 104px);
+	line-height: 1;
+	font-weight: 800;
+}
+body h2 {
+	margin: 0;
+	padding-bottom: 24px;
+	font-size: clamp(40px, 5vw, 64px);
+	line-height: 1.05;
+	font-weight: 800;
+}
+body h3 {
+	margin: 0;
+	font-size: 24px;
+	line-height: 1.2;
+	font-weight: 700;
+}
+body h6 {
+	margin: 0;
+	padding-bottom: 16px;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	color: #5A4A36;
+}
+body p {
+	margin: 0;
+	font-size: 17px;
+	line-height: 1.6;
+}
+body ul,
+body ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body figure {
+	margin: 0;
+}
+::selection {
+	background: #0E2628;
+	color: #E8D9BC;
+}
+:focus-visible {
+	outline: 2px solid #2E3D99;
+	outline-offset: 3px;
+}
+
+/* Text for screen readers only (filter status) */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	overflow: hidden;
+	white-space: nowrap;
+	clip-path: inset(50%);
+}
+
+
+/* ---------- Grid ---------- */
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 5px;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-12 {
+	min-width: 0;
+	padding: 0 15px;
+}
+.col-md-3 { flex: 3 1 200px; }
+.col-md-4 { flex: 4 1 280px; }
+.col-md-5 { flex: 5 1 340px; }
+.col-md-6 { flex: 1 1 400px; }
+.col-md-7 { flex: 7 1 520px; }
+.col-md-8 { flex: 8 1 560px; }
+.col-md-12 { flex: 1 1 100%; }
+
+
+/* ---------- Buttons ---------- */
+.theme-btn {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 12px 12px 0;
+	padding: 14px 22px;
+	background: #2E3D99;
+	border: 1.5px solid #2E3D99;
+	border-radius: 2px;
+	color: #F6EFE2;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.theme-btn:hover {
+	background: #1C2766;
+	border-color: #1C2766;
+	color: #F6EFE2;
+}
+.theme-btn img {
+	width: 16px;
+	margin-right: 10px;
+}
+.second-btn {
+	display: inline-flex;
+	align-items: center;
+	margin: 0 12px 12px 0;
+	padding: 14px 22px;
+	background: transparent;
+	border: 1.5px solid #2A2218;
+	border-radius: 2px;
+	color: #2A2218;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.second-btn:hover {
+	background: #DCC8A4;
+	color: #2A2218;
+}
+.second-btn img {
+	width: 16px;
+	margin-right: 10px;
+}
+
+
+/* ---------- Header ---------- */
+header .main-header {
+	padding-top: 28px;
+}
+header .main-header .row {
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #2A2218;
+}
+header .main-header .col-md-4 {
+	flex: 0 0 auto;
+}
+header .main-header .col-md-8 {
+	flex: 0 1 auto;
+}
+header a.head-logo {
+	display: flex;
+	align-items: center;
+	padding: 6px 0;
+	color: #2A2218;
+	font-size: 18px;
+	font-weight: 700;
+	text-decoration: none;
+}
+header a.head-logo img {
+	width: 34px;
+	margin-right: 12px;
+}
+header ul.head-menu {
+	display: flex;
+	flex-wrap: wrap;
+}
+header ul.head-menu li a {
+	display: block;
+	padding: 12px 8px;
+	border-radius: 2px;
+	color: #2A2218;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	text-decoration: none;
+}
+header ul.head-menu li a:hover {
+	background: #DCC8A4;
+}
+
+
+/* ---------- Level 00 · Hero ---------- */
+section.hero {
+	padding: 72px 0;
+}
+section.hero .row {
+	align-items: center;
+}
+section.hero .signature-text h6 {
+	padding-bottom: 28px;
+}
+section.hero .signature-text h1 + p {
+	max-width: 620px;
+	padding: 16px 0 0;
+	font-size: clamp(22px, 2.4vw, 30px);
+	line-height: 1.25;
+	font-weight: 500;
+}
+section.hero .signature-text p + p {
+	max-width: 580px;
+	padding-top: 20px;
+	font-size: 17px;
+	line-height: 1.6;
+	font-weight: 400;
+	color: #4A3B28;
+}
+section.hero .signature-btn {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 36px;
+}
+section.hero .signature-text ul {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 620px;
+	margin-top: 32px;
+	padding-top: 18px;
+	border-top: 1px solid #2A2218;
+}
+section.hero .signature-text ul li {
+	padding: 0 32px 10px 0;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
+}
+
+/* Stepwell plan: each nested div is one level deeper */
+section.hero figure {
+	max-width: 460px;
+	margin: 48px auto 0;
+}
+section.hero .vav-plan {
+	display: flex;
+	flex-direction: column;
+	aspect-ratio: 1 / 1;
+	padding: 0 18px 18px;
+	background: #D6C29C;
+	border: 1.5px solid #2A2218;
+}
+section.hero .vav-plan div {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 0 16px 16px;
+	border: 1.5px solid #2A2218;
+}
+section.hero .vav-plan a {
+	display: block;
+	padding: 14px 0;
+	color: #2A2218;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	text-decoration: none;
+}
+section.hero .vav-plan a:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+section.hero .vav-plan > div {
+	background: #C9AF85;
+}
+section.hero .vav-plan > div > div {
+	background: #B49770;
+}
+section.hero .vav-plan > div > div > div {
+	background: #6E5A3E;
+}
+section.hero .vav-plan > div > div > div > a {
+	color: #F6EFE2;
+}
+section.hero .vav-plan > div > div > div > div {
+	align-items: center;
+	justify-content: center;
+	padding: 0 16px;
+	background: #0E2628;
+}
+section.hero .vav-plan > div > div > div > div > a {
+	color: #7CCFC3;
+}
+section.hero figcaption {
+	padding-top: 14px;
+	color: #5A4A36;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+
+/* ---------- Level 01 · Skills ---------- */
+section.skills {
+	padding-bottom: 96px;
+	background: #DCC8A4;
+}
+section.skills::before {
+	content: "";
+	display: block;
+	margin-bottom: 56px;
+	padding-top: 56px;
+	background: url(../images/step-1.svg) no-repeat;
+	background-size: 100% 100%;
+}
+section.skills .signature-text p {
+	padding-bottom: 40px;
+	color: #4A3B28;
+}
+section.skills ul.skill-list > li {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	padding: 20px 0 12px;
+	border-top: 1.5px solid #2A2218;
+}
+section.skills ul.skill-list > li:last-child {
+	border-bottom: 1.5px solid #2A2218;
+}
+section.skills ul.skill-list > li:nth-child(2) { padding-left: 16px; }
+section.skills ul.skill-list > li:nth-child(3) { padding-left: 32px; }
+section.skills ul.skill-list > li:nth-child(4) { padding-left: 48px; }
+section.skills ul.skill-list > li:nth-child(5) { padding-left: 64px; }
+section.skills ul.skill-list > li:nth-child(6) { padding-left: 80px; }
+section.skills ul.skill-list h3 {
+	flex: 0 0 160px;
+	padding: 0 24px 12px 0;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
+	font-weight: 600;
+}
+section.skills ul.skill-list ul {
+	flex: 1 1 300px;
+	display: flex;
+	flex-wrap: wrap;
+}
+section.skills ul.skill-list ul li {
+	margin: 0 8px 8px 0;
+	padding: 6px 12px;
+	border: 1px solid #2A2218;
+	border-radius: 999px;
+	font-size: 15px;
+}
+
+
+/* ---------- Level 02 · Projects ---------- */
+section.work {
+	padding-bottom: 104px;
+	background: #C9AF85;
+}
+section.work::before {
+	content: "";
+	display: block;
+	margin-bottom: 56px;
+	padding-top: 56px;
+	background: url(../images/step-2.svg) no-repeat;
+	background-size: 100% 100%;
+}
+section.work .signature-text h6 {
+	color: #2A2218;
+}
+section.work .container > .row:first-child {
+	align-items: flex-end;
+	padding-bottom: 16px;
+}
+section.work .project-filter {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	padding-bottom: 24px;
+}
+section.work .project-filter button {
+	margin: 0 0 8px 8px;
+	padding: 12px 16px;
+	background: transparent;
+	border: 1.5px solid #2A2218;
+	border-radius: 2px;
+	color: #2A2218;
+	font-family: inherit;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+section.work .project-filter button:hover {
+	background: #DCC8A4;
+}
+section.work .project-filter button[aria-pressed="true"] {
+	background: #2E3D99;
+	border-color: #2E3D99;
+	color: #F6EFE2;
+}
+section.work .project-filter button span {
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	opacity: 0.8;
+}
+
+/* Project cards */
+section.work [data-cat] {
+	display: flex;
+	flex-direction: column;
+}
+section.work [data-cat][hidden] {
+	display: none;
+}
+section.work article.card {
+	flex: 1;
+	margin-bottom: 30px;
+	background: #F3E9D6;
+	border: 1.5px solid #2A2218;
+	border-radius: 3px;
+}
+section.work .card-top {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 14px 24px;
+	border-bottom: 1.5px solid #2A2218;
+}
+section.work .card-top h6 {
+	padding: 0;
+	color: #2A2218;
+	font-size: 12px;
+}
+section.work .card-top h6 + h6 {
+	color: #4A3B28;
+	font-weight: 400;
+}
+section.work article.card > .row {
+	padding: 28px 9px 12px;
+}
+section.work article.card .col-md-6 {
+	padding-bottom: 16px;
+}
+section.work article.card .col-md-6 + .col-md-6 {
+	display: flex;
+	flex-direction: column;
+}
+section.work article.card h3 {
+	padding-bottom: 16px;
+	font-size: 26px;
+	line-height: 1.15;
+}
+section.work article.card h3 + p {
+	padding-bottom: 16px;
+	line-height: 1.5;
+}
+section.work article.card ul {
+	padding: 0 0 16px 20px;
+	list-style: disc;
+	color: #4A3B28;
+	font-size: 15px;
+	line-height: 1.6;
+}
+section.work article.card ul li {
+	padding-bottom: 4px;
+}
+section.work article.card ul.tags {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 8px 0;
+	list-style: none;
+}
+section.work article.card ul.tags li {
+	margin: 0 6px 6px 0;
+	padding: 5px 10px;
+	background: #E3D3B3;
+	border-radius: 2px;
+	color: #2A2218;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+}
+section.work a.card-link {
+	display: inline-flex;
+	align-items: center;
+	padding: 12px 0;
+	font-size: 16px;
+	font-weight: 600;
+}
+section.work a.card-link img {
+	width: 14px;
+	margin-right: 8px;
+}
+
+/* Browser frame (featured card) */
+section.work .browser {
+	flex: 1;
+	overflow: hidden;
+	background: #FBF6EC;
+	border: 1.5px solid #2A2218;
+	border-radius: 4px;
+}
+section.work .browser > div:first-child {
+	display: flex;
+	align-items: center;
+	padding: 10px 14px;
+	background: #EADCC0;
+	border-bottom: 1.5px solid #2A2218;
+}
+section.work .browser > div:first-child img {
+	flex: none;
+	width: 44px;
+	margin-right: 12px;
+}
+section.work .browser > div:first-child p {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	padding: 6px 12px;
+	background: #FBF6EC;
+	border: 1px solid #2A2218;
+	border-radius: 999px;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+section.work .browser > div + div {
+	padding: 22px;
+}
+section.work .browser h6 {
+	padding-bottom: 14px;
+	color: #4A3B28;
+	font-size: 11px;
+}
+section.work article.card .browser ul {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+	list-style: none;
+	color: #2A2218;
+}
+section.work article.card .browser ul li {
+	display: flex;
+	align-items: flex-start;
+	flex: 1 1 200px;
+	padding: 0 24px 12px 0;
+	font-size: 15px;
+	line-height: 1.4;
+}
+section.work .browser ul li img {
+	flex: none;
+	width: 16px;
+	margin: 2px 10px 0 0;
+}
+
+/* "How it works" steps go down like a stepwell */
+section.work .flow-box {
+	flex: 1;
+	padding: 18px 20px 14px;
+	background: #EADCC0;
+	border-radius: 2px;
+}
+section.work .flow-box h6 {
+	padding-bottom: 14px;
+	color: #4A3B28;
+	font-size: 11px;
+}
+section.work .flow-box ol li {
+	display: flex;
+	align-items: baseline;
+	margin-bottom: 6px;
+	padding: 9px 12px;
+	background: #F3E9D6;
+	border: 1px solid #2A2218;
+	border-radius: 2px;
+	font-size: 14px;
+	line-height: 1.4;
+}
+section.work .flow-box ol li:nth-child(2) { margin-left: 16px; }
+section.work .flow-box ol li:nth-child(3) { margin-left: 32px; }
+section.work .flow-box ol li:nth-child(4) { margin-left: 48px; }
+section.work .flow-box ol li:nth-child(5) { margin-left: 64px; }
+section.work .flow-box ol li:last-child {
+	background: #0E2628;
+	border-color: #0E2628;
+	color: #E8D9BC;
+	font-weight: 600;
+}
+section.work .flow-box ol li strong {
+	flex: none;
+	margin-right: 12px;
+	color: #4A3B28;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 11px;
+}
+section.work .flow-box ol li:last-child strong {
+	color: #7CCFC3;
+}
+section.work p.more-code {
+	padding: 8px 15px 0;
+}
+section.work p.more-code a {
+	color: #1C2766;
+	font-weight: 600;
+}
+
+
+/* ---------- Level 03 · Experience ---------- */
+section.journey {
+	background: #5B4A33;
+	color: #F4E9D4;
+}
+section.journey::before {
+	content: "";
+	display: block;
+	margin-bottom: 56px;
+	padding-top: 56px;
+	background: url(../images/step-3.svg) no-repeat;
+	background-size: 100% 100%;
+}
+section.journey::after {
+	content: "";
+	display: block;
+	margin-top: 64px;
+	padding-top: 56px;
+	background: url(../images/step-4.svg) no-repeat;
+	background-size: 100% 100%;
+}
+section.journey h6 {
+	color: #D9C7A6;
+}
+section.journey .signature-text h2 {
+	padding-bottom: 48px;
+}
+section.journey .col-md-6 {
+	padding-bottom: 40px;
+}
+section.journey .col-md-6 > h6 {
+	padding-bottom: 20px;
+}
+section.journey ol.exp-list {
+	border-top: 1.5px solid #D9C7A6;
+}
+section.journey ol.exp-list > li {
+	padding: 24px 0;
+	border-bottom: 1px solid #8C7656;
+}
+section.journey ol.exp-list > li:last-child {
+	border-bottom: 0;
+}
+section.journey .exp-head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+}
+section.journey .exp-head h3 {
+	padding: 0 12px 4px 0;
+}
+section.journey .exp-head h6 {
+	padding: 0;
+	font-weight: 400;
+}
+section.journey .exp-head + p {
+	color: #D9C7A6;
+	font-size: 16px;
+}
+section.journey ol.exp-list ul {
+	padding: 14px 0 0 20px;
+	list-style: disc;
+	font-size: 16px;
+	line-height: 1.6;
+}
+section.journey ol.exp-list ul li {
+	padding-bottom: 6px;
+}
+section.journey ol.exp-list ul li::marker {
+	color: #D9C7A6;
+}
+section.journey ol.exp-list a {
+	display: inline-flex;
+	align-items: center;
+	padding-top: 10px;
+	color: #7CCFC3;
+	font-weight: 600;
+}
+section.journey ol.exp-list a:hover {
+	color: #A8E3DA;
+}
+section.journey ol.exp-list a img {
+	width: 14px;
+	margin-right: 8px;
+}
+section.journey ol.edu-list {
+	border-top: 1.5px solid #D9C7A6;
+}
+section.journey ol.edu-list li {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 22px 0;
+	border-bottom: 1px solid #8C7656;
+}
+section.journey ol.edu-list li:last-child {
+	border-bottom: 0;
+}
+section.journey ol.edu-list li > h6 {
+	flex: 0 0 64px;
+	padding: 4px 0 0;
+	font-size: 14px;
+}
+section.journey ol.edu-list li > div {
+	flex: 1 1 260px;
+}
+section.journey ol.edu-list h3 {
+	padding-bottom: 4px;
+	font-size: 19px;
+}
+section.journey ol.edu-list p {
+	color: #D9C7A6;
+	font-size: 15px;
+}
+
+
+/* ---------- Level 04 · Contact (footer) ---------- */
+footer {
+	position: relative;
+	overflow: hidden;
+	padding: 64px 0 48px;
+	background: #0E2628;
+	color: #E8D9BC;
+}
+
+/* Water ripples */
+footer::before,
+footer::after {
+	content: "";
+	position: absolute;
+	top: 40px;
+	right: 0;
+	width: 60%;
+	max-width: 640px;
+	aspect-ratio: 1 / 1;
+	border: 1.5px solid #7CCFC3;
+	border-radius: 50%;
+	opacity: 0;
+	animation: vavRipple 7s ease-out infinite;
+}
+footer::after {
+	animation-delay: 3.5s;
+}
+@keyframes vavRipple {
+	0% {
+		transform: scale(0.15);
+		opacity: 0.6;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	footer::before,
+	footer::after {
+		animation: none;
+		opacity: 0.2;
+		transform: scale(0.5);
+	}
+	footer::after {
+		transform: scale(0.85);
+	}
+}
+
+footer .container {
+	position: relative;
+	z-index: 1;
+}
+footer .signature-text h6 {
+	color: #7CCFC3;
+}
+footer .signature-text h2 {
+	padding-bottom: 40px;
+	color: #E8D9BC;
+	font-size: clamp(38px, 6vw, 80px);
+	line-height: 1;
+}
+footer a.mail {
+	display: inline-block;
+	padding-bottom: 40px;
+	color: #7CCFC3;
+	font-size: clamp(22px, 3vw, 36px);
+	font-weight: 600;
+	text-underline-offset: 6px;
+	word-break: break-all;
+}
+footer a.mail:hover {
+	color: #A8E3DA;
+}
+footer .signature-btn {
+	display: flex;
+	flex-wrap: wrap;
+}
+footer a.second-btn {
+	border-color: #E8D9BC;
+	color: #E8D9BC;
+}
+footer a.second-btn:hover {
+	background: #18393C;
+	color: #E8D9BC;
+}
+footer .copyright {
+	margin-top: 84px;
+	padding-top: 24px;
+	border-top: 1px solid #2F5257;
+}
+footer .copyright p {
+	padding-bottom: 12px;
+	color: #B9C9C4;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	line-height: 1.7;
+}
+footer .copyright a {
+	display: inline-flex;
+	align-items: center;
+	padding-bottom: 12px;
+	color: #7CCFC3;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: none;
+}
+footer .copyright a img {
+	width: 14px;
+	margin-right: 8px;
+}
